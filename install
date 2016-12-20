@@ -1,0 +1,6 @@
+#!/bin/bash
+
+target=/usr/local/bin
+
+sudo cp bgit $target
+sudo cp bsrv $target
