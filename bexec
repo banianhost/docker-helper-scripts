@@ -1,5 +1,0 @@
-#!/bin/bash
-
-ID=`docker ps | grep $1 |  awk '{ print $1; }'`
-shift
-docker exec -it $ID $@
