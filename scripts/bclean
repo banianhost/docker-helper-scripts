@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo Cleanup containers
+for i in ` docker ps -a | grep -v -e "data" -e "volume" -e "Up" | awk '{ print $1; }'`; do 
+    docker rm $i
+done
+
+echo Cleanup images 
+for i in `docker images -a | grep "<none>" | awk '{ print $3; }'`; do 
+    docker rmi -f $i 
+done
