@@ -1,5 +1,7 @@
 #!/bin/bash
 
-ID=`docker ps | grep $1 |  awk '{ print $1; }'`
+IDS=`docker ps | grep $1 |  awk '{ print $1; }'`
 shift
-docker exec -it $ID $@
+for ID in $IDS; do
+  docker exec -it $ID $@
+done
