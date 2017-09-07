@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IDS=`docker ps | grep $1 |  awk '{ print $1; }'`
+IDS=`docker ps --format "{{.Names}}" | grep $1'`
 shift
 for ID in $IDS; do
   docker exec -it $ID $@
